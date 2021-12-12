@@ -40,13 +40,21 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
+<<<<<<< HEAD
 DocumentPath=..\..\..\ADlibrary\OPEN\tianxiaohua_PcbLib.PcbLib
+=======
+DocumentPath=Sheet1-MCU.SchDoc
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
+<<<<<<< HEAD
 AnnotateOrder=-1
+=======
+AnnotateOrder=0
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -54,16 +62,27 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
+<<<<<<< HEAD
 DocumentUniqueId=SRPKSGHC
 
 [Document2]
 DocumentPath=..\..\..\ADlibrary\OPEN\tianxiaohua_Schlib.SchLib
+=======
+DocumentUniqueId=CHIYCEIR
+
+[Document2]
+DocumentPath=Sheet2-BC26.SchDoc
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
+<<<<<<< HEAD
 AnnotateOrder=-1
+=======
+AnnotateOrder=3
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -71,10 +90,17 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
+<<<<<<< HEAD
 DocumentUniqueId=CHIYCEIR
 
 [Document3]
 DocumentPath=H3-core.PcbDoc
+=======
+DocumentUniqueId=TFOUVAMD
+
+[Document3]
+DocumentPath=PCB1.PcbDoc
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -91,7 +117,11 @@ GenerateClassCluster=0
 DocumentUniqueId=ETXAVIED
 
 [Document4]
+<<<<<<< HEAD
 DocumentPath=1-Power.SchDoc
+=======
+DocumentPath=..\..\..\ADlibrary\OPEN\tianxiaohua_PcbLib.PcbLib
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -105,6 +135,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
+<<<<<<< HEAD
 DocumentUniqueId=TFOUVAMD
 
 [Document5]
@@ -126,6 +157,12 @@ DocumentUniqueId=CHIYCEIR
 
 [Document6]
 DocumentPath=3-camera.SchDoc
+=======
+DocumentUniqueId=
+
+[Document5]
+DocumentPath=..\..\..\ADlibrary\OPEN\tianxiaohua_Schlib.SchLib
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -139,7 +176,11 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
+<<<<<<< HEAD
 DocumentUniqueId=BPMJJELU
+=======
+DocumentUniqueId=
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 
 [Configuration1]
 Name=Sources
@@ -312,6 +353,7 @@ OutputName1=Composite Drawing
 OutputDocumentPath1=
 OutputVariantName1=
 OutputDefault1=0
+<<<<<<< HEAD
 PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=2.72|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 Configuration1_Name1=OutputConfigurationParameter1
 Configuration1_Item1=DesignatorDisplayMode=Physical|PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView|DocumentPath=E:\CodeBase\robot\Hardware\Core\H3-core.PcbDoc
@@ -325,6 +367,9 @@ Configuration1_Name5=OutputConfigurationParameter5
 Configuration1_Item5=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|DrillType=Regular|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer|DocumentPath=E:\CodeBase\robot\Hardware\Core\H3-core.PcbDoc
 Configuration1_Name6=OutputConfigurationParameter6
 Configuration1_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|DrillType=Regular|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=Mechanical1|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer|DocumentPath=E:\CodeBase\robot\Hardware\Core\H3-core.PcbDoc
+=======
+PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 OutputType2=PCB 3D Print
 OutputName2=PCB 3D Print
 OutputDocumentPath2=
@@ -1136,6 +1181,7 @@ UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
 
+<<<<<<< HEAD
 [NetInfos]
 Net1=NetName=SA0|NetColor=$00C5AFB0
 Net2=NetName=SA1|NetColor=$00C5AFB0
@@ -1187,6 +1233,8 @@ Net47=NetName=SDQS1_P|NetColor=$00164FDE
 Net48=NetName=SODT0|NetColor=$00164FDE
 Net49=NetName=SODT1|NetColor=$00164FDE
 
+=======
+>>>>>>> 46d3f1df57e2457dccb67048912c86b90b996095
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=0|UseName=-1|InclAllRules=0
 ComparisonOptions1=Kind=Net Class|MinPercent=75|MinMatch=3|ShowMatch=0|UseName=-1|InclAllRules=0
