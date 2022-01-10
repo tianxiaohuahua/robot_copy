@@ -40,40 +40,6 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=..\..\..\ADlibrary\OPEN\tianxiaohua_PcbLib.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=SRPKSGHC
-
-[Document2]
-DocumentPath=..\..\..\ADlibrary\OPEN\tianxiaohua_Schlib.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=JQBSWHYV
-
-[Document3]
 DocumentPath=H3-core.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -90,7 +56,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ETXAVIED
 
-[Document4]
+[Document2]
 DocumentPath=1-Power.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -107,7 +73,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TFOUVAMD
 
-[Document5]
+[Document3]
 DocumentPath=2-core.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -124,7 +90,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CHIYCEIR
 
-[Document6]
+[Document4]
 DocumentPath=3-Wifi-SD.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -141,7 +107,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YBCPIUSV
 
-[Document7]
+[Document5]
 DocumentPath=4-Connect.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -1152,6 +1118,20 @@ SelectedOnly=0
 UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
+
+[NetInfos]
+Net1=NetName=EPHY-RX_N|NetColor=clYellow
+Net2=NetName=EPHY-RX_P|NetColor=clYellow
+Net3=NetName=EPHY-TX_N|NetColor=clYellow
+Net4=NetName=EPHY-TX_P|NetColor=clYellow
+Net5=NetName=HTX0_N|NetColor=clYellow
+Net6=NetName=HTX0_P|NetColor=clYellow
+Net7=NetName=HTX1_N|NetColor=clYellow
+Net8=NetName=HTX1_P|NetColor=clYellow
+Net9=NetName=HTX2_N|NetColor=clYellow
+Net10=NetName=HTX2_P|NetColor=clYellow
+Net11=NetName=HTXC_N|NetColor=clYellow
+Net12=NetName=HTXC_P|NetColor=clYellow
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=0|UseName=-1|InclAllRules=0
