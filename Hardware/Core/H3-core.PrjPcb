@@ -125,7 +125,7 @@ GenerateClassCluster=0
 DocumentUniqueId=BPMJJELU
 
 [Document6]
-DocumentPath=E:\CodeBase\ADlibrary\OPEN\tianxiaohua_PcbLib.PcbLib
+DocumentPath=..\..\..\ADlibrary\OPEN\tianxiaohua_PcbLib.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -142,7 +142,7 @@ GenerateClassCluster=0
 DocumentUniqueId=SRPKSGHC
 
 [Document7]
-DocumentPath=E:\CodeBase\ADlibrary\OPEN\tianxiaohua_Schlib.SchLib
+DocumentPath=..\..\..\ADlibrary\OPEN\tianxiaohua_Schlib.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -157,6 +157,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
+
+[Document8]
+DocumentPath=PCB-Logo.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=TLHOPSYG
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for V3\Design Rule Check - H3-core.html
