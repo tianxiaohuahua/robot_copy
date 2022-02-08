@@ -23,7 +23,7 @@ C_ScreenDispayBaseMng::C_ScreenDispayBaseMng(/* args */)
 
     if(1 == DEVICE_TYPE)
     {
-        mp_ScreenDisplayBase = new screenDisplayBaseDevice1();
+        mp_ScreenDisplayBase = new C_screenDisplayBaseDevice1();
         if(NULL == mp_ScreenDisplayBase)
         {
             //打印初始化的对象失败

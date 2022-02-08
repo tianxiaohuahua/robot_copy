@@ -1,16 +1,16 @@
 #include "screenDisplayBaseDevice1.h"
 #include "screenDisplayWidget.h"
 
-screenDisplayBaseDevice1::screenDisplayBaseDevice1(/* args */)
+C_screenDisplayBaseDevice1::C_screenDisplayBaseDevice1(/* args */)
 {
     GetScreenDisplayWidgetObj();
 }
 
-screenDisplayBaseDevice1::~screenDisplayBaseDevice1()
+C_screenDisplayBaseDevice1::~C_screenDisplayBaseDevice1()
 {
 }
 
-void screenDisplayBaseDevice1::setScreenInform(void)
+void C_screenDisplayBaseDevice1::setScreenInform(void)
 {
     char *string = {"通知信息"};
 
@@ -22,7 +22,7 @@ void screenDisplayBaseDevice1::setScreenInform(void)
     C_ScreenDisplayWidget::DrawCr();
 }
 
-void screenDisplayBaseDevice1::setScreenText(void)
+void C_screenDisplayBaseDevice1::setScreenText(void)
 {
     char *string = {"文本框"};
     C_ScreenDisplayWidget::Drawline();

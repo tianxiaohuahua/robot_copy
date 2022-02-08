@@ -3,13 +3,13 @@
 
 #include "screenDisplayBase.h"
 
-class screenDisplayBaseDevice1 : public C_ScreenDisplayBase
+class C_screenDisplayBaseDevice1 : public C_ScreenDisplayBase
 {
 private:
     /* data */
 public:
-    screenDisplayBaseDevice1(/* args */);
-    ~screenDisplayBaseDevice1();
+    C_screenDisplayBaseDevice1(/* args */);
+    ~C_screenDisplayBaseDevice1();
 
     void setScreenInform(void); //屏幕显示通知框
     void setScreenText(void);   //屏幕显示文本框

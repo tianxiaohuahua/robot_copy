@@ -4,4 +4,5 @@
 int main(void)
 {
     printf("begin\r\n");
+	C_languageInteraApi::init();
 }

@@ -1,11 +1,13 @@
 #编译工具链
 cc := g++ 
 
+applaction=modScreenDisplay
+
 #所有.o文件
 object = MainScreenDisplay.o screenDisplayApi.o screenDisplayBase.o screenDisplayBaseDevice1.o screenDisplayBaseMng.o screenDisplayWidget.o 
 
-ModScreenDisplay:$(object)
-	$(cc) -o ModScreenDisplay $(object)
+$(applaction):$(object)
+	$(cc) -o $(applaction) $(object)
 
 %o : %c
 	g++ -cpp $<
@@ -16,7 +18,7 @@ $(O_PATH)/%.o: $(SUBDIR)/%.cpp
 
 clean:
 	rm *o
-	rm ModScreenDisplay
+	rm $(applaction)
 
 
 #目标文件名

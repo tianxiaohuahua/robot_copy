@@ -23,7 +23,7 @@ void C_ScreenDisplayWidget::DrawMessage(char *pStr)
     printf("%s",pStr);
 }
 
-//位外部文件调用此类提供指针接口
+//为外部文件调用此类提供指针接口
 static C_ScreenDisplayWidget *gp_screenDisplayWidge = NULL;
 
 C_ScreenDisplayWidget *GetScreenDisplayWidgetObj()
@@ -33,7 +33,7 @@ C_ScreenDisplayWidget *GetScreenDisplayWidgetObj()
         gp_screenDisplayWidge = new C_ScreenDisplayWidget();
         if(NULL == gp_screenDisplayWidge)
         {
-            return false;
+            return NULL;
         }
     }
     return gp_screenDisplayWidge;
