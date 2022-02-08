@@ -1,47 +1,5 @@
-# Robot日志
+交叉编译工具使用的是： arm-none-linux-gnueabihf-gcc-9.2.1
 
-# 22.2.5 
+交叉编译工具链在中国境内的镜像网址为清华大学的开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/armbian-releases/_toolchain/
 
-### orangepi的用户名和密码：
-
-```
-root
-orangepi
-```
-
-### ssh登陆指令为：
-
-```
-ssh root@192.168.0.105 //使用wifi直连
-ssh root@192.168.1.5 //使用网线连接；
-```
-
-### 连接WIFI
-
-首先使用 nmcli dev wifi 命令扫描周围的 WIFI 热点
-
-```
-nmcli dev wifi 
-```
-
-```shell
-nmcli dev wifi connect tianxiaohuawifi password 88888888
-```
-
-# 
-
-### 为了测试音乐是不是可以正常输出播放，在orangepi上安装了音乐播放器； https://zhuanlan.zhihu.com/p/94871125
-
-```
-sudo apt-get install sox //终端音乐播放器
-sudo apt-get install sox libsox-fmt-all //用于解码
-```
-
-### 调节音量的大小 linux下使用命令行来调节系统音量的两种方法amixer和pactl
-
-```
-alsamixer
-```
-
-会谈出可视化窗口，使用界面方式调节声音的大小
-
+Ubuntu 18.04安装arm-linux-gcc交叉编译器：：[Ubuntu 18.04安装arm-linux-gcc交叉编译器（超简单，附安装包下载地址）_wu10188的博客-CSDN博客_ubuntu安装交叉编译器](https://blog.csdn.net/wu10188/article/details/86542418?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&utm_relevant_index=2)

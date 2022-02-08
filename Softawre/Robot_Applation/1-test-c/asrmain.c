@@ -10,14 +10,16 @@
  */
 static RETURN_CODE fill_config(struct asr_config *config) {
     // 填写网页上申请的appkey 如 g_api_key="g8eBUMSokVB1BHGmgxxxxxx"
-    char api_key[] = "kVcnfD9iW2XVZSMaLMrtLYIz";
+    //char api_key[] = "kVcnfD9iW2XVZSMaLMrtLYIz"; //测试例程
+	char api_key[] = "ZUmYyI8ViFGDL5cpDEbC1hlA"; //田小花的账号
     // 填写网页上申请的APP SECRET 如 $secretKey="94dc99566550d87f8fa8ece112xxxxx"
-    char secret_key[] = "O9o1O213UgG5LFn0bDGNtoRN3VWl2du6";
+    //char secret_key[] = "O9o1O213UgG5LFn0bDGNtoRN3VWl2du6"; //测试历程
+    char secret_key[] = "KcgQsVbBQFSTbq1Umj4EK9kw4Y2P8MvH";  //田小花的账号
     // 需要识别的文件
-    char *filename = "16k.pcm";
+    char *filename = "16k.wav";
 
     // 文件后缀仅支持 pcm/wav/amr 格式，极速版额外支持m4a 格式
-    char format[] = "pcm";
+    char format[] = "wav";
 
     char *url = "http://vop.baidu.com/server_api";  // 可改为https
 
@@ -62,14 +64,16 @@ static RETURN_CODE fill_config(struct asr_config *config) {
     config->dev_pid = dev_pid;
     snprintf(config->cuid, sizeof(config->cuid), "1234567C");
 
+	printf("\033[31;1m API数据填写完成 \033[0m\r\n ");
+	
     return RETURN_OK;
 }
 
 
 int main() {
-    printf("program start\n");
-
-    curl_global_init(CURL_GLOBAL_ALL);
+    printf("\033[31;1m 程序开始 \033[0m\r\n ");
+	
+    curl_global_init(CURL_GLOBAL_ALL); //设置libcurl需要的程序环境
 
     RETURN_CODE rescode = run();
     curl_global_cleanup();
@@ -85,10 +89,10 @@ RETURN_CODE run() {
     struct asr_config config;
     char token[MAX_TOKEN_SIZE];
 
-    RETURN_CODE res = fill_config(&config);
+    RETURN_CODE res = fill_config(&config); //填写主要的API请求基础数据
     if (res == RETURN_OK) {
         // 获取token
-        res = speech_get_token(config.api_key, config.secret_key, config.scope, token);
+        res = speech_get_token(config.api_key, config.secret_key, config.scope, token); //解析response json ， 获取token，验证scope信息
         if (res == RETURN_OK) {
             // 调用识别接口
             run_asr(&config, token);
