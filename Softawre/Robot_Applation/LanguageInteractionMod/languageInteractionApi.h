@@ -2,7 +2,7 @@
 #define LANDUAGE_INTERATION_API_H
 
 #include "languageInteractionBaseMng.h"
-
+#include "languageInclude.h"
 class C_languageInteraApi
 {
 private:

@@ -2,7 +2,7 @@
 cc := g++ 
 
 #所有.o文件
-object = MainLanguageInteraction.o languageInteractionApi.o languageInteractionBase.o languageInteractionBaseDevice1.o languageInteractionBaseMng.o languageInteractionWidget.o 
+object = MainLanguageInteraction.o languageInteractionApi.o languageInteractionBase.o languageInteractionBaseDevice1.o languageInteractionBaseBaidu.o languageInteractionBaseMng.o languageInteractionWidget.o languageInclude.o
 
 ModLanguageInteraction:$(object)
 	$(cc) -o ModLanguageInteraction $(object)

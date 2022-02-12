@@ -2,8 +2,8 @@
 
 #需要预先安装libcurl库，安装方法见README.md
 
-#GCC=gcc #在单板主机上编译使用
-GCC=arm-none-linux-gnueabihf-gcc #交叉编译使用
+GCC=gcc #在单板主机上编译使用
+#GCC=arm-none-linux-gnueabihf-gcc #交叉编译使用
 MAIN_SOURCE=asrmain
 
 $GCC --version && \
