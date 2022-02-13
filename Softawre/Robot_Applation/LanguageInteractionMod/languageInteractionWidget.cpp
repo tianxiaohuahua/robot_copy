@@ -27,7 +27,7 @@ void C_languageInterationWidget::sayInterval()
 	printf("\n");
 }
 
-unsigned int C_languageInterationWidget::readFeedbackProfile(Baidu_API_KEY &baiduApiKey) //读取配置文件
+unsigned int C_languageInterationWidget::readFeedbackProfile(INTERACTION_CONFIG *p_ApiKey) //读取配置文件
 {
 
 //打开文件
@@ -56,15 +56,21 @@ unsigned int C_languageInterationWidget::readFeedbackProfile(Baidu_API_KEY &baid
 	char cuid[200]       = "1234567C";	//必填	用户唯一标识，用来计算UV值。建议填写能区分用户的机器 MAC 地址或 IMEI 码，长度为60字符以内
 	char format[200]     = "wav";// 文件后缀仅支持 pcm/wav/amr 格式，极速版额外支持m4a 格式
 	int  rate            = 16000;  // 采样率固定值
+
+	char url_pattern[] = "%s?grant_type=client_credentials&client_id=%s&client_secret=%s";
+	char API_TOKEN_URL[] = "https://aip.baidubce.com/oauth/2.0/token";
 	
-	Sys_memcpy(baiduApiKey.api_key,    api_key,     sizeof(api_key));
-	Sys_memcpy(baiduApiKey.secret_key, secret_key, 	sizeof(secret_key));
-	Sys_memcpy(baiduApiKey.url, 	   url, 		sizeof(url));
-	Sys_memcpy(&baiduApiKey.dev_pid,  &dev_pid,     sizeof(dev_pid));
-	Sys_memcpy(baiduApiKey.scope, 	   scope,       sizeof(scope));
-	Sys_memcpy(baiduApiKey.cuid, 	   cuid,        sizeof(cuid));
-	Sys_memcpy(baiduApiKey.format, 	   format,      sizeof(format));
-	Sys_memcpy(&baiduApiKey.rate,     &rate,        sizeof(dev_pid));
+	Sys_memcpy(p_ApiKey->BaiduApiConfig.api_key,    api_key,     sizeof(api_key));
+	Sys_memcpy(p_ApiKey->BaiduApiConfig.secret_key, secret_key, 	sizeof(secret_key));
+	Sys_memcpy(p_ApiKey->BaiduApiConfig.url, 	   url, 		sizeof(url));
+	Sys_memcpy(&p_ApiKey->BaiduApiConfig.dev_pid,  &dev_pid,     sizeof(dev_pid));
+	Sys_memcpy(p_ApiKey->BaiduApiConfig.scope, 	   scope,       sizeof(scope));
+	Sys_memcpy(p_ApiKey->BaiduApiConfig.cuid, 	   cuid,        sizeof(cuid));
+	Sys_memcpy(p_ApiKey->BaiduApiConfig.format, 	   format,      sizeof(format));
+	Sys_memcpy(&p_ApiKey->BaiduApiConfig.rate,     &rate,        sizeof(rate));
+
+	Sys_memcpy(p_ApiKey->Url_Config.Url_api, 	   API_TOKEN_URL,      sizeof(API_TOKEN_URL));
+	Sys_memcpy(p_ApiKey->Url_Config.Url_pattern,   url_pattern,        sizeof(url_pattern));
 	return REV_TRUE;
 }
 

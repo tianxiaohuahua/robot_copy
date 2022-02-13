@@ -24,7 +24,7 @@ void testClass::fun(int j)
 	printf("\033[37;1m你好麽，\033[38;5m我很好。。");
 	cout<<"!!!!!!!!"<<j<<endl;
 }
-
+ 
 void testClass::delay(void)
 {
 	long int i=0;

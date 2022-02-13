@@ -6,7 +6,7 @@
 class C_languageInteraApi
 {
 private:
-
+	
 public:
 	C_languageInteraApi();
 	~C_languageInteraApi();

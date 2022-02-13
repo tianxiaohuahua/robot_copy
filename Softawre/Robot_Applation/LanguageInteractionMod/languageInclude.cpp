@@ -49,7 +49,7 @@ unsigned int Sys_memcpy(void *dest, void *src, unsigned int count)
 
 void *Sys_malloc(int size)
 {
-	 //return *malloc(size);
+	 return (void *)malloc(size);
 }
 
 FILE * Sys_read_file(const char * path)

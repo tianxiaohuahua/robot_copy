@@ -26,16 +26,6 @@ void C_languageInterationBaseDecice1::setInterationAnswer()
 	C_languageInterationWidget::sayInterval();
 	C_languageInterationWidget::sayMassage(str);
 	C_languageInterationWidget::sayInterval();
-	
-	Baidu_API_KEY baiduApiKey;
-	
-	if(REV_TRUE != C_languageInterationWidget::readFeedbackProfile(baiduApiKey))
-	{
-		printf("失败 readFeedbackProfile \r\n");
-		//return REV_FAIL;
-	}
-	printf("%s    %s",baiduApiKey.api_key,baiduApiKey.secret_key);
-	
 }
 
 void C_languageInterationBaseDecice1::setInteractionRepetition()

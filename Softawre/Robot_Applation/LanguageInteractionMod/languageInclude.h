@@ -1,5 +1,9 @@
 #ifndef LANGUAGE_INCLUDE_H
 #define LANGUAGE_INCLUDE_H
+#include <memory.h>
+#include <unistd.h>
+#include <curl/curl.h>
+#include <stdlib.h>
 
 #include <iostream>
 #include <stdlib.h>
@@ -14,13 +18,19 @@
 #include <unistd.h>
 #include <memory.h>
 
-#include <curl/curl.h>
 
 //线程相关
 #include <pthread.h>
 
 //mem操作
 #include <string.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <memory.h>
+#include <curl/curl.h> // 依赖libcurl
+
+
 /*
 相关函数：signal, alarm
  

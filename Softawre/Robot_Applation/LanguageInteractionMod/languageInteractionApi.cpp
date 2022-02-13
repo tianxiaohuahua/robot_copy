@@ -25,6 +25,10 @@ void C_languageInteraApi::startThread()
 {
 	//新建一个线程
 	FILE *audio;
+	
+	char *p_BaiduUrl;
+
+	char *p_BaiduTocken;
 //被唤醒
 //录音
 	
@@ -34,8 +38,16 @@ void C_languageInteraApi::startThread()
 	{
 		printf("!!!!!!!!");
 	}
-//录音文件上传
+/*录音文件上传*/
+	/*获取url*/
+	INTERACTION_CONFIG *Baidu_Api_Key;
 	
+	GetLanguageInteraBaseObj()->getInteractionConfig(Baidu_Api_Key); //url配置
+	
+	GetLanguageInteraBaseObj()->getInteractionSpeedUrl(Baidu_Api_Key, p_BaiduUrl); //获取URL
+
+	/*上传url解析*/
+	GetLanguageInteraBaseObj()->getInteractionBaiduRecv(Baidu_Api_Key, p_BaiduUrl, p_BaiduTocken); 
 //语音解析
 
 //内容反馈

@@ -20,6 +20,25 @@ typedef struct
 	//int lm_id;//测试自训练平台需要打开此注释
 }Baidu_API_KEY;
 
+
+typedef struct
+
+{
+	char Url_pattern[200];
+	char Url_api    [200];
+}URL_CONFIG;
+
+
+
+typedef struct
+{
+	Baidu_API_KEY BaiduApiConfig;
+	URL_CONFIG    Url_Config;
+}INTERACTION_CONFIG;
+
+
+
+
 //Baidu_API_KEY baiduApiKey;
 
 class C_languageInterationWidget
@@ -36,7 +55,7 @@ public:
 	static void sayWarning(); //提示音
 	static void sayInterval();//间隔
 
-	static unsigned int readFeedbackProfile(Baidu_API_KEY &baiduApiKey); //读取配置文件
+	static unsigned int readFeedbackProfile(INTERACTION_CONFIG *p_ApiKey); //读取配置文件
 	static unsigned int getRecordAudio(FILE *p_audio); //获取音频 录音
 };
 
