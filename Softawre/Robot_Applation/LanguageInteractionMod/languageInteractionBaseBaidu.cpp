@@ -89,26 +89,103 @@ unsigned int C_languageInterationBaseBaidu::getInteractionSpeedUrl(INTERACTION_C
 	return REV_TRUE;
 }
 
+unsigned int obtain_json_str(const char *json, const char *key, char *value, int value_size) 
+{
+    int len = 4 + strlen(key) + 1;
+	
+    char search_key[len];
+	
+	printf("obtain_json_str!!\n");
+	
+    snprintf(search_key, len, "\"%s\":\"\n", key);
+		
+    const char *start = strstr(json, search_key);
+	
+    if (start == NULL) // 没有找到
+	{ 
+        fprintf(stderr, "%s key not exist\n", key);
+		
+        return REV_FAIL;
+    }
+	
+    start += strlen(search_key);
+	
+    const char *end = strstr(start, "\"");
+		
+    // 最大可复制的string
+    int copy_size = (value_size < end - start) ? value_size : end - start;
+	/*
+    snprintf(value, copy_size + 1, "%s", start);
+	*/
+	printf("obtain_json_str 结束\n");
+    return REV_TRUE;
+}
 
-const int BUFFER_ERROR_SIZE = 1024;
-char g_demo_error_msg[1024] = {0};
+
+// 解析json，获取某个key对应的value ;为了不引用第三方json库，仅仅做简单的字符串操作
+// 正式使用请使用json库解析，json库解析推荐@see www.json.org
+unsigned int parse_token(const char *response, const char *scope, char *token) 
+{
+	int MAX_TOKEN_SIZE = 100;
+	unsigned int res;
+    //  ====  获取 token字段 =========
+    res = obtain_json_str(response, "access_token", token, MAX_TOKEN_SIZE);
+	
+    if (res != REV_TRUE) 
+	{
+        printf("parse token error: %s\n", response);
+		
+        return REV_URL_NONE;
+    }
+
+    // ==== 检查scope =========
+    char scopes[400];
+	
+    res = obtain_json_str(response, "scope", scopes, 400);
+	
+    if (res != REV_TRUE) 
+	{
+        printf("parse scope error: %s\n", response);
+        return REV_URL_NONE;
+    }
+    if (strlen(scope) > 0) 
+	{
+        char *scope_pos = strstr(scopes, scope);
+		
+        if (scope_pos == NULL) 
+		{
+            printf("scope： %s not exist in:%s \n", scope, response);
+			
+            return REV_URL_NONE;
+        }
+    }
+    return REV_TRUE;
+}
+
+
 
 // libcurl 返回回调
-size_t writefunc(void *ptr, size_t size, size_t nmemb, char **result) {
+size_t writefunc(void *ptr, size_t size, size_t nmemb, char **result) 
+{
     size_t result_len = size * nmemb;
     int is_new = (*result == NULL);
-    if (is_new) {
+    if (is_new) 
+	{
         *result = (char *) malloc(result_len + 1);
-        if (*result == NULL) {
+        if (*result == NULL) 
+		{
             printf("realloc failure!\n");
             return 1;
         }
         memcpy(*result, ptr, result_len);
         (*result)[result_len] = '\0';
-    } else {
+    } 
+	else 
+	{
         size_t old_size = strlen(*result);
         *result = (char *) realloc(*result, result_len + old_size);
-        if (*result == NULL) {
+        if (*result == NULL) 
+		{
             printf("realloc failure!\n");
             return 1;
         }
@@ -117,6 +194,7 @@ size_t writefunc(void *ptr, size_t size, size_t nmemb, char **result) {
     }
     return result_len;
 }
+
 
 /*
 **时间：22.2.12 22：56
@@ -138,21 +216,21 @@ unsigned int C_languageInterationBaseBaidu::getInteractionBaiduRecv(INTERACTION_
     curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 5);
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 60); // 60s超时
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response); 
 
-    CURLcode res_curl = curl_easy_perform(curl);
-	printf("res_curl:%s",res_curl);
+    CURLcode res_curl = curl_easy_perform(curl); 
+	printf("res_curl:%d\n",res_curl);
 	
     unsigned int res = REV_TRUE;
 	
     if (res_curl != CURLE_OK) 
 	{
-        snprintf(g_demo_error_msg, BUFFER_ERROR_SIZE, "perform curl error:%d, %s.\n", res,curl_easy_strerror(res_curl));
+        printf("perform curl error:%s\n",curl_easy_strerror(res_curl));
         res = REV_FAIL;
     } 
 	else 
 	{
-        //res = parse_token(response, p_Interaction_Config->BaiduApiConfig.scope, p_BaiduTocken); // 解析token，结果保存在token里
+        res = parse_token(response, p_Interaction_Config->BaiduApiConfig.scope, p_BaiduTocken); // 解析token，结果保存在token里
 
 		if (res == REV_TRUE) 
 		{

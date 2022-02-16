@@ -52,6 +52,7 @@ typedef enum RETURN_CODE {
     REV_TRUE      = 0,    // 返回正常
     REV_FAIL      = 1,    // 返回错误
     REV_FILE_NULL = 2,    // TOKEN CURL 调用错误
+    REV_URL_NONE  = 3,    // url返回的为空
 } RETURN_CODE;
 
 unsigned int Sys_init(void);

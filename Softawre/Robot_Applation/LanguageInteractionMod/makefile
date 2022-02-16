@@ -9,7 +9,7 @@ ModLanguageInteraction:$(object)
 	#-g 可以调试
 	#-c 只允许执行到汇编步骤，不允许链接。
 	#gcc main.c -lcurl -o main
-	$(cc) $(object) -lcurl -o ModLanguageInteraction 
+	$(cc) $(object) -g -std=gnu99 -lcurl -o ModLanguageInteraction 
 
 %o : %cpp
 	$(cc) -cpp $<
