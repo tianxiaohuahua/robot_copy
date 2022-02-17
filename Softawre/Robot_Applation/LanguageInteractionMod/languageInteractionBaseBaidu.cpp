@@ -83,7 +83,7 @@ unsigned int C_languageInterationBaseBaidu::getInteractionAudio(FILE *p_audio)
 */
 unsigned int C_languageInterationBaseBaidu::getInteractionSpeedUrl(INTERACTION_CONFIG *p_Interaction_Config, char *p_url)
 {	
-    printf("getInteractionSpeedUrl!!\n");
+    printf("getInteractionSpeedUrl!!\n:%s\n:%s\n:%s\n:%s\n", Interaction_Config.Url_Config.Url_pattern, Interaction_Config.Url_Config.Url_api, Interaction_Config.BaiduApiConfig.api_key, Interaction_Config.BaiduApiConfig.secret_key);
     snprintf(p_url, 200, Interaction_Config.Url_Config.Url_pattern, Interaction_Config.Url_Config.Url_api, Interaction_Config.BaiduApiConfig.api_key, Interaction_Config.BaiduApiConfig.secret_key);
     printf("url is: %s\n", p_url);
 
