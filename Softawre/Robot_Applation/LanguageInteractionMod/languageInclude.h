@@ -30,6 +30,12 @@
 #include <memory.h>
 #include <curl/curl.h> // 依赖libcurl
 
+extern char DEBUG_NORMAL[10]; //正常调试信息打印 白底黑字
+extern char DEBUG_ERROR[10] ; //错误警告打印 白底红字
+extern char DEBUG_ADOPT[10] ; //通过打印 白底绿字
+
+
+
 
 /*
 相关函数：signal, alarm

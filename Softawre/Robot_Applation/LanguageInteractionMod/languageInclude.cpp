@@ -29,6 +29,10 @@ void foobar(int i)
 */
 
 
+char DEBUG_NORMAL[10] = {"\033[0m"}; //正常调试信息打印 白底黑字
+char DEBUG_ERROR[10] = {"\033[31;1m"}; //错误警告打印 白底红字
+char DEBUG_ADOPT[10] = {"\033[34;1m"}; //通过打印 白底绿字
+
 
 UINT32 Sys_init(void)
 {
@@ -42,16 +46,25 @@ UINT32 Sys_init(void)
 	return 0;
 }
 
+/*
+	复制内存数据
+*/
 unsigned int Sys_memcpy(void *dest, void *src, unsigned int count)
 {
 	memcpy(dest,src,count);
 }
 
+/*
+	申请一块内存空间
+*/
 void *Sys_malloc(int size)
 {
 	 return (void *)malloc(size);
 }
 
+/*
+	读取文件
+*/
 FILE * Sys_read_file(const char * path)
 {
 	return fopen(path, "r");

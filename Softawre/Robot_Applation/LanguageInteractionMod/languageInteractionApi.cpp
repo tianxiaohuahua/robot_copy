@@ -27,7 +27,7 @@ void C_languageInteraApi::startThread()
 	FILE *audio;
 	
 	char *p_BaiduUrl;
-
+	p_BaiduUrl = (char*)Sys_malloc(sizeof(char)*200);	
 	char *p_BaiduTocken;
 //被唤醒
 //录音
@@ -45,7 +45,7 @@ void C_languageInteraApi::startThread()
 	GetLanguageInteraBaseObj()->getInteractionConfig(Baidu_Api_Key); //url配置
 	
 	GetLanguageInteraBaseObj()->getInteractionSpeedUrl(Baidu_Api_Key, p_BaiduUrl); //获取URL
-
+	printf("获取URL的值: %s\n", p_BaiduUrl);
 	/*上传url解析*/
 	GetLanguageInteraBaseObj()->getInteractionBaiduRecv(Baidu_Api_Key, p_BaiduUrl, p_BaiduTocken); 
 //语音解析

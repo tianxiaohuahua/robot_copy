@@ -1,0 +1,12 @@
+{
+    "api_key":"ZUmYyI8ViFGDL5cpDEbC1hlA",
+    "secret_key":"KcgQsVbBQFSTbq1Umj4EK9kw4Y2P8MvH",
+    "url":"http://vop.baidu.com/server_api",
+    "dev_pid":1537,
+    "scope":"audio_voice_assistant_get",
+    "cuid":"1234567C",
+    "format":"wav",
+    "rate":16000,
+    "url_pattern":"%s?grant_type=client_credentials&client_id=%s&client_secret=%s",
+    "API_TOKEN_URL":"https://aip.baidubce.com/oauth/2.0/token"
+}

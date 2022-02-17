@@ -77,15 +77,16 @@ unsigned int C_languageInterationBaseBaidu::getInteractionAudio(FILE *p_audio)
 **作者：田小花
 **功能：生成百度语音请求url
 **输入：
-     url配置
+     url配置ls
 **返回：
      状态值
 */
 unsigned int C_languageInterationBaseBaidu::getInteractionSpeedUrl(INTERACTION_CONFIG *p_Interaction_Config, char *p_url)
 {	
+    //p_url = (char*)Sys_malloc(sizeof(char)*200);
     printf("getInteractionSpeedUrl!!\n:%s\n:%s\n:%s\n:%s\n", Interaction_Config.Url_Config.Url_pattern, Interaction_Config.Url_Config.Url_api, Interaction_Config.BaiduApiConfig.api_key, Interaction_Config.BaiduApiConfig.secret_key);
     snprintf(p_url, 200, Interaction_Config.Url_Config.Url_pattern, Interaction_Config.Url_Config.Url_api, Interaction_Config.BaiduApiConfig.api_key, Interaction_Config.BaiduApiConfig.secret_key);
-    printf("url is: %s\n", p_url);
+    printf("success return url is: %s\n", p_url);
 	return REV_TRUE;
 }
 
@@ -196,6 +197,7 @@ size_t writefunc(void *ptr, size_t size, size_t nmemb, char **result)
 }
 
 
+
 /*
 **时间：22.2.12 22：56
 **作者：田小花
@@ -209,7 +211,7 @@ unsigned int C_languageInterationBaseBaidu::getInteractionBaiduRecv(INTERACTION_
 {
 	char *response = NULL;
 
-    printf("url is: %s\n", p_url);
+    printf("%surl is: %s\n", DEBUG_NORMAL,p_url);
 	/**/
     CURL *curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_URL, p_url); // 注意返回值判读
@@ -219,28 +221,29 @@ unsigned int C_languageInterationBaseBaidu::getInteractionBaiduRecv(INTERACTION_
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response); 
 
     CURLcode res_curl = curl_easy_perform(curl); 
-	printf("res_curl:%d\n",res_curl);
-	
+	printf("%s返回状态值res_curl=%d\n", DEBUG_ADOPT, res_curl);
+	printf("%s返回json内容:%s\n", DEBUG_ADOPT, response);
+
     unsigned int res = REV_TRUE;
 	
     if (res_curl != CURLE_OK) 
 	{
-        printf("perform curl error:%s\n",curl_easy_strerror(res_curl));
+        printf("%sperform curl error:%s\n",DEBUG_ERROR, curl_easy_strerror(res_curl));
         res = REV_FAIL;
     } 
 	else 
 	{
-        res = parse_token(response, p_Interaction_Config->BaiduApiConfig.scope, p_BaiduTocken); // 解析token，结果保存在token里
+        //res = parse_token(response, p_Interaction_Config->BaiduApiConfig.scope, p_BaiduTocken); // 解析token，结果保存在token里
 
 		if (res == REV_TRUE) 
 		{
-            printf("REV_TRUE token: %s of %s\n", p_BaiduTocken, response);
+            //printf("REV_TRUE token: %s of %s\n", p_BaiduTocken, response);
         }
     }
-    free(response);
-	
+
+    free(response); //清除掉申请的数据
     curl_easy_cleanup(curl);
-	/**/
+	/*程序正常运行到此处会返回正确*/
 	return REV_TRUE;
 }
 
