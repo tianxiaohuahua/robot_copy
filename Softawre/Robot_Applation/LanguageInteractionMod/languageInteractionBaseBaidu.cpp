@@ -67,7 +67,7 @@ unsigned int C_languageInterationBaseBaidu::getInteractionAudio(FILE *p_audio)
 		printf("\033[31;1m失败 getRecordAudio 没有音频文件\r\n ");
 		return REV_FILE_NULL;
 	}
-	printf("\033[32;1m获取音频\r\n");
+	printf("\033[32;1m获取音频success\r\n");
 	return REV_TRUE;
 }
 
@@ -83,6 +83,7 @@ unsigned int C_languageInterationBaseBaidu::getInteractionAudio(FILE *p_audio)
 */
 unsigned int C_languageInterationBaseBaidu::getInteractionSpeedUrl(INTERACTION_CONFIG *p_Interaction_Config, char *p_url)
 {	
+    printf("getInteractionSpeedUrl!!\n");
     snprintf(p_url, 200, Interaction_Config.Url_Config.Url_pattern, Interaction_Config.Url_Config.Url_api, Interaction_Config.BaiduApiConfig.api_key, Interaction_Config.BaiduApiConfig.secret_key);
     printf("url is: %s\n", p_url);
 
