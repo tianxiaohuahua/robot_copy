@@ -86,7 +86,6 @@ unsigned int C_languageInterationBaseBaidu::getInteractionSpeedUrl(INTERACTION_C
     printf("getInteractionSpeedUrl!!\n:%s\n:%s\n:%s\n:%s\n", Interaction_Config.Url_Config.Url_pattern, Interaction_Config.Url_Config.Url_api, Interaction_Config.BaiduApiConfig.api_key, Interaction_Config.BaiduApiConfig.secret_key);
     snprintf(p_url, 200, Interaction_Config.Url_Config.Url_pattern, Interaction_Config.Url_Config.Url_api, Interaction_Config.BaiduApiConfig.api_key, Interaction_Config.BaiduApiConfig.secret_key);
     printf("url is: %s\n", p_url);
-
 	return REV_TRUE;
 }
 
