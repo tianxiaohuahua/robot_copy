@@ -29,6 +29,9 @@ void C_languageInteraApi::startThread()
 	char *p_BaiduUrl;
 	p_BaiduUrl = (char*)Sys_malloc(sizeof(char)*200);	
 	char *p_BaiduTocken;
+
+
+
 //被唤醒
 //录音
 	

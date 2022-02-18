@@ -234,6 +234,19 @@ unsigned int C_languageInterationBaseBaidu::getInteractionBaiduRecv(INTERACTION_
 	else 
 	{
         //res = parse_token(response, p_Interaction_Config->BaiduApiConfig.scope, p_BaiduTocken); // 解析token，结果保存在token里
+        
+	
+        char *faleName = "Key.json";
+        char *dev_id = "dev_pid";
+        int revKeyValue;
+        readFileJson(faleName,dev_id,revKeyValue);
+        printf("json: %d\n", revKeyValue);
+
+        
+        char *api_key = "api_key";
+        char *lue = (char*)Sys_malloc(sizeof(char)*200);	
+        readFileJson(faleName,api_key,lue);
+        printf("json: %s\n", lue);
 
 		if (res == REV_TRUE) 
 		{

@@ -30,6 +30,12 @@
 #include <memory.h>
 #include <curl/curl.h> // 依赖libcurl
 
+
+#include <jsoncpp/json/json.h> //编译链接库g++ -o app main.cpp -ljsoncpp
+#include <string>
+#include <iostream>
+#include <fstream>
+
 extern char DEBUG_NORMAL[10]; //正常调试信息打印 白底黑字
 extern char DEBUG_ERROR[10] ; //错误警告打印 白底红字
 extern char DEBUG_ADOPT[10] ; //通过打印 白底绿字
@@ -60,6 +66,11 @@ typedef enum RETURN_CODE {
     REV_FILE_NULL = 2,    // TOKEN CURL 调用错误
     REV_URL_NONE  = 3,    // url返回的为空
 } RETURN_CODE;
+
+
+//从文件中读取JSON
+void readFileJson(const char *p_filename, const char *p_key, char *p_keyValue);
+void readFileJson(const char *p_filename,  const char *p_key, int &p_keyValue);
 
 unsigned int Sys_init(void);
 

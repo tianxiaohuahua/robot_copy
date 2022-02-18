@@ -28,6 +28,7 @@ void foobar(int i)
 }
 */
 
+using namespace std;
 
 char DEBUG_NORMAL[10] = {"\033[0m"}; //正常调试信息打印 白底黑字
 char DEBUG_ERROR[10] = {"\033[31;1m"}; //错误警告打印 白底红字
@@ -68,4 +69,68 @@ void *Sys_malloc(int size)
 FILE * Sys_read_file(const char * path)
 {
 	return fopen(path, "r");
+}
+
+//从文件中读取JSON
+void readFileJson(const char *p_filename, const char *p_key, char *p_keyValue)
+{
+	Json::Reader reader;
+	Json::Value root;
+	printf("从文件中读取，保证当前文件有test.json文件\n");
+
+	//从文件中读取，保证当前文件有test.json文件
+	ifstream in(p_filename, ios::binary);
+	
+	if( !in.is_open() )  
+	{ 
+		//cout << "Error opening file\n"; 
+		return; 
+	}
+	
+	if(reader.parse(in,root))
+	{
+        //读取根节点信息
+        string name = root[p_key].asString();
+		strcpy(p_keyValue,name.c_str());
+	}
+	else
+	{
+	    //cout << "parse error\n" << endl;	
+	}
+ 
+	in.close();
+}
+
+//从文件中读取JSON
+void readFileJson(const char *p_filename, const char *p_key, int &p_keyValue)
+{
+	Json::Reader reader;
+	Json::Value root;
+	printf("从文件中读取，保证当前文件有test.json文件\n");
+
+	//从文件中读取，保证当前文件有test.json文件
+	ifstream in(p_filename, ios::binary);
+	
+	if( !in.is_open() )  
+	{ 
+		//cout << "Error opening file\n"; 
+		return; 
+	}
+	
+	if(reader.parse(in,root))
+	{
+        //读取根节点信息
+
+        int age = root[p_key].asInt();
+
+		p_keyValue = age;
+
+        //cout << "I'm " << age << " years old" << endl;
+	}
+	else
+	{
+	    //cout << "parse error\n" << endl;	
+	}
+ 
+	in.close();
 }

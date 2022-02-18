@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include <jsoncpp/json/json.h> //编译链接库g++ -o app main.cpp -ljsoncpp
 #include <string>
 #include <iostream>
@@ -34,23 +32,7 @@ void readFileJson()
 	cout << "Error opening file\n"; 
 	return; 
 	}
- 
-	/*
-	//test.json内容如下：
-	{
-		"name":"Tsybius",
-		"age":23,
-		"sex_is_male":true,
-		"partner":
-		{
-			"partner_name":"Galatea",
-			"partner_age":21,
-			"partner_sex_is_male":false
-		},
-		"achievement":["ach1","ach2","ach3"]
-	}
-	*/
- 
+	
 	if(reader.parse(in,root))
 	{
         //读取根节点信息
