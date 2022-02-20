@@ -44,18 +44,26 @@ typedef struct
 class C_languageInterationWidget
 {
 private:
-
+	
 public:
+	
+
 	C_languageInterationWidget();
 	~C_languageInterationWidget();
-
+	
 	
 	
 	static void sayMassage(char *pStr);
 	static void sayWarning(); //提示音
 	static void sayInterval();//间隔
 
+	//从文件中读取JSON
+	static unsigned int readFileJson(const char *p_filename, const char *p_key, char *p_keyValue);
+	static unsigned int readFileJson(const char *p_filename,  const char *p_key, int &p_keyValue);
+	static unsigned int readCurlJson(const char *p_json, const char *p_key, char *p_keyValue);
+
 	static unsigned int readFeedbackProfile(INTERACTION_CONFIG *p_ApiKey); //读取配置文件
+	static unsigned int readFeedbackProfile(INTERACTION_CONFIG *p_ApiKey, const char*p_fileName); //读取配置文件
 	static unsigned int getRecordAudio(FILE *p_audio); //获取音频 录音
 };
 

@@ -106,6 +106,19 @@ unsigned int C_languageInteractionBaseMng::getInteractionBaiduRecv(INTERACTION_C
 	return mp_LanguageInteraBase->getInteractionBaiduRecv(p_Interaction_Config, p_url, p_BaiduTocken);
 }
 
+/*
+**时间：22.2.20 10：00
+**作者：田小花
+**功能：调用识别接口对语音识别
+**输入：
+     url配置
+**返回：
+     状态值
+*/
+unsigned int C_languageInteractionBaseMng::getInteractionBaiduAsr(INTERACTION_CONFIG *config, char *p_audioData, int &content_len, const char *token) 
+{
+     return mp_LanguageInteraBase->getInteractionBaiduAsr(config, p_audioData, content_len, token);
+}
 
 char *C_languageInteractionBaseMng::getInteractionQuestion()
 {

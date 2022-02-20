@@ -68,15 +68,13 @@ typedef enum RETURN_CODE {
 } RETURN_CODE;
 
 
-//从文件中读取JSON
-void readFileJson(const char *p_filename, const char *p_key, char *p_keyValue);
-void readFileJson(const char *p_filename,  const char *p_key, int &p_keyValue);
+
 
 unsigned int Sys_init(void);
 
 unsigned int Sys_memcpy(void *dest, void *src, unsigned int count);
 
-FILE * Sys_read_file(const char * path);
+unsigned int Sys_read_file(const char *p_fileName, FILE * path);
 
 void *Sys_malloc(int size);
 

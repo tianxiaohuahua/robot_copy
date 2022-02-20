@@ -21,9 +21,9 @@ C_languageInterationBaseBaidu::~C_languageInterationBaseBaidu()
 */
 unsigned int C_languageInterationBaseBaidu::languageBaseInit()
 {
+	char *faleName = "Key.json";
 	
-	
-	if(REV_TRUE != C_languageInterationWidget::readFeedbackProfile(&Interaction_Config))
+	if(REV_TRUE != C_languageInterationWidget::readFeedbackProfile(&Interaction_Config, faleName))
 	{
 		printf("\033[31;1m失败 readFeedbackProfile\r\n");
 		return REV_FAIL;
@@ -233,32 +233,110 @@ unsigned int C_languageInterationBaseBaidu::getInteractionBaiduRecv(INTERACTION_
     } 
 	else 
 	{
-        //res = parse_token(response, p_Interaction_Config->BaiduApiConfig.scope, p_BaiduTocken); // 解析token，结果保存在token里
+        //char *scope = "scope";
+        char *access_token = "access_token";
+        //char tocken1[1024];
         
-	
-        char *faleName = "Key.json";
-        char *dev_id = "dev_pid";
-        int revKeyValue;
-        readFileJson(faleName,dev_id,revKeyValue);
-        printf("json: %d\n", revKeyValue);
-
-        
-        char *api_key = "api_key";
-        char *lue = (char*)Sys_malloc(sizeof(char)*200);	
-        readFileJson(faleName,api_key,lue);
-        printf("json: %s\n", lue);
-
+        //res = C_languageInterationWidget::readCurlJson(response,scope,tocken1);//获取json键值信息
+        res = C_languageInterationWidget::readCurlJson(response,access_token,p_BaiduTocken);//获取json键值信息
 		if (res == REV_TRUE) 
 		{
-            //printf("REV_TRUE token: %s of %s\n", p_BaiduTocken, response);
+            printf("%saccess_token: %s\n", DEBUG_ERROR ,p_BaiduTocken);
         }
     }
-
     free(response); //清除掉申请的数据
     curl_easy_cleanup(curl);
 	/*程序正常运行到此处会返回正确*/
 	return REV_TRUE;
 }
+
+unsigned int getaudio(char *audio_data)
+{
+    int content_len = 0;
+    FILE *p_file = fopen("16k.wav", "r");
+    fseek(p_file, 0, SEEK_END);
+    int len = ftell(p_file);
+    fseek(p_file, 0, SEEK_SET);
+
+    content_len = len;
+    audio_data = (char *) malloc(len);
+    if (audio_data == NULL) 
+    {
+        //fprintf(stderr, "malloc size %d failed", len);
+        printf("%scurl_easy_setopt\n",DEBUG_NORMAL);
+        exit(11);
+    }
+
+    fread(audio_data, 1, len, p_file);
+    return 0;
+}
+
+/*
+**时间：22.2.20 10：00
+**作者：田小花
+**功能：调用识别接口对语音识别
+**输入：
+     url配置
+**返回：
+     状态值
+*/
+unsigned int C_languageInterationBaseBaidu::getInteractionBaiduAsr(INTERACTION_CONFIG *config, char *p_audioData, int &content_len, const char *token) 
+{   
+    config = &Interaction_Config;
+    printf("%s调用识别接口对语音识别Content-Type: audio/%s; rate=%d\n",DEBUG_NORMAL, config->BaiduApiConfig.format, config->BaiduApiConfig.rate);
+    char url[300];
+    CURL *curl = curl_easy_init(); // 需要释放
+
+    char *cuid = curl_easy_escape(curl, config->BaiduApiConfig.cuid, strlen(config->BaiduApiConfig.cuid)); // 需要释放
+    
+    snprintf(url, sizeof(url), "%s?cuid=%s&token=%s&dev_pid=%d", config->BaiduApiConfig.url, cuid, token, config->BaiduApiConfig.dev_pid);
+    printf("url :%s\n", url);
+    //测试自训练平台需要打开以下信息
+    //snprintf(url, sizeof(url), "%s?cuid=%s&token=%s&dev_pid=%d&lm_id=%d", config->url, cuid, token, config->dev_pid, config->lm_id);
+    curl_free(cuid);
+
+    struct curl_slist *headerlist = NULL;
+    char header[50];
+    snprintf(header, sizeof(header), "Content-Type: audio/%s; rate=%d", config->BaiduApiConfig.format, config->BaiduApiConfig.rate);
+    headerlist = curl_slist_append(headerlist, header); // 需要释放
+
+    printf("%ssnprintf: headerlist:%s   header:%s\n",DEBUG_NORMAL,headerlist, header);
+    
+    char *result = NULL;
+
+    printf("%s连接百度发送音频获取返回值\n",DEBUG_NORMAL);
+    
+    curl_easy_setopt(curl, CURLOPT_URL, url);
+    curl_easy_setopt(curl, CURLOPT_POST, 1);
+    curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 5); // 连接5s超时
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 60); // 整体请求60s超时
+    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headerlist); // 添加http header Content-Type
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, p_audioData); // 音频数据
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, content_len); // 音频数据长度
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &result);  // 需要释放
+
+    CURLcode res_curl = curl_easy_perform(curl);
+
+    RETURN_CODE res = REV_TRUE;
+    if (res_curl != CURLE_OK) 
+    {
+        // curl 失败
+        res = REV_FAIL;
+    } 
+    else 
+    {
+        printf("YOUR FINAL RESULT: %s\n", result);
+    }
+    
+    curl_slist_free_all(headerlist);
+    free(result);
+    curl_easy_cleanup(curl);
+
+    return res;
+}
+
+
 
 
 char *C_languageInterationBaseBaidu::getInteractionQuestion()
