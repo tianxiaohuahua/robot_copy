@@ -21,7 +21,7 @@ C_languageInterationBase::~C_languageInterationBase()
 */
 unsigned int C_languageInterationBase::languageBaseInit()
 {
-
+     return 0;
 }
 
 /*
@@ -35,7 +35,7 @@ unsigned int C_languageInterationBase::languageBaseInit()
 */
 INTERACTION_CONFIG * C_languageInterationBase::getInteractionConfig(INTERACTION_CONFIG *p_Interaction_Config)
 {
-
+     return 0;
 }
 
 /*
@@ -47,9 +47,9 @@ INTERACTION_CONFIG * C_languageInterationBase::getInteractionConfig(INTERACTION_
 **返回：
      状态值
 */
-unsigned int C_languageInterationBase::getInteractionAudio(FILE *p_audio)
+AUDIO_DATA * C_languageInterationBase::getInteractionAudio(const char *p_Filename)
 {
-
+     return 0;
 }
 
 /*
@@ -63,7 +63,7 @@ unsigned int C_languageInterationBase::getInteractionAudio(FILE *p_audio)
 */
 unsigned int C_languageInterationBase::getInteractionASR(FILE *p_audio)
 {
-
+     return 0;
 }
 
 /*
@@ -77,7 +77,7 @@ unsigned int C_languageInterationBase::getInteractionASR(FILE *p_audio)
 */
 unsigned int C_languageInterationBase::getInteractionSpeedUrl(INTERACTION_CONFIG *p_Interaction_Config, char *p_url)
 {
-	
+     return 0;
 }
 
 
@@ -92,7 +92,7 @@ unsigned int C_languageInterationBase::getInteractionSpeedUrl(INTERACTION_CONFIG
 */
 unsigned int C_languageInterationBase::getInteractionBaiduRecv(INTERACTION_CONFIG *p_Interaction_Config, char *p_url, char *p_BaiduTocken)//获取百度返回数据
 {
-	 
+     return 0;
 }
 
 /*
@@ -106,10 +106,10 @@ unsigned int C_languageInterationBase::getInteractionBaiduRecv(INTERACTION_CONFI
 */
 unsigned int C_languageInterationBase::getInteractionBaiduAsr(INTERACTION_CONFIG *config, char *p_audioData, int &content_len, const char *token) 
 {
-
+     return 0;
 }
 
-char* C_languageInterationBase::getInteractionQuestion()
+void C_languageInterationBase::getInteractionQuestion()
 {
 
 }

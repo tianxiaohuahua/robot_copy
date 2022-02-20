@@ -21,7 +21,7 @@ C_languageInterationBaseBaidu::~C_languageInterationBaseBaidu()
 */
 unsigned int C_languageInterationBaseBaidu::languageBaseInit()
 {
-	char *faleName = "Key.json";
+	char faleName[] = "Key.json";
 	
 	if(REV_TRUE != C_languageInterationWidget::readFeedbackProfile(&Interaction_Config, faleName))
 	{
@@ -60,15 +60,37 @@ INTERACTION_CONFIG *C_languageInterationBaseBaidu::getInteractionConfig(INTERACT
 **返回：
      状态值
 */
-unsigned int C_languageInterationBaseBaidu::getInteractionAudio(FILE *p_audio)
+AUDIO_DATA *C_languageInterationBaseBaidu::getInteractionAudio(const char *p_Filename)
 {	
+    AUDIO_DATA *p_Audio_Data;
+	p_Audio_Data = (AUDIO_DATA*) malloc(sizeof(p_Audio_Data));
+
+	//获取录音
+	FILE *p_file = fopen(p_Filename, "r");
+    fseek(p_file, 0, SEEK_END); //获取文件头地址
+    int len = ftell(p_file);
+    fseek(p_file, 0, SEEK_SET);//获取文件尾地址
+
+    p_Audio_Data->dataLen = len;
+    p_Audio_Data->data = (char *) malloc(len);
+    if (p_Audio_Data->data == NULL) 
+    {
+        //fprintf(stderr, "malloc size %d failed", len);
+        printf("%scurl_easy_setopt\n",DEBUG_NORMAL);
+        exit(11);
+    }
+    fread(p_Audio_Data->data, 1, len, p_file);
+
+	return p_Audio_Data;
+
+    /*
 	if(REV_FILE_NULL == C_languageInterationWidget::getRecordAudio(p_audio)) //获取音频 录音
 	{
 		printf("\033[31;1m失败 getRecordAudio 没有音频文件\r\n ");
 		return REV_FILE_NULL;
 	}
 	printf("\033[32;1m获取音频success\r\n");
-	return REV_TRUE;
+	return REV_TRUE;*/
 }
 
 
@@ -234,7 +256,7 @@ unsigned int C_languageInterationBaseBaidu::getInteractionBaiduRecv(INTERACTION_
 	else 
 	{
         //char *scope = "scope";
-        char *access_token = "access_token";
+        char access_token[] = "access_token";
         //char tocken1[1024];
         
         //res = C_languageInterationWidget::readCurlJson(response,scope,tocken1);//获取json键值信息
@@ -296,11 +318,11 @@ unsigned int C_languageInterationBaseBaidu::getInteractionBaiduAsr(INTERACTION_C
     curl_free(cuid);
 
     struct curl_slist *headerlist = NULL;
-    char header[50];
+    char header[400];
     snprintf(header, sizeof(header), "Content-Type: audio/%s; rate=%d", config->BaiduApiConfig.format, config->BaiduApiConfig.rate);
     headerlist = curl_slist_append(headerlist, header); // 需要释放
 
-    printf("%ssnprintf: headerlist:%s   header:%s\n",DEBUG_NORMAL,headerlist, header);
+    printf("%sheader:%s\n",DEBUG_NORMAL, header);
     
     char *result = NULL;
 
@@ -339,7 +361,7 @@ unsigned int C_languageInterationBaseBaidu::getInteractionBaiduAsr(INTERACTION_C
 
 
 
-char *C_languageInterationBaseBaidu::getInteractionQuestion()
+void C_languageInterationBaseBaidu::getInteractionQuestion()
 {
 
 }
@@ -347,7 +369,7 @@ char *C_languageInterationBaseBaidu::getInteractionQuestion()
 
 void C_languageInterationBaseBaidu::setInterationAnswer()
 {
-	char* str = "回答";
+	char str[] = "回答";
 	C_languageInterationWidget::sayWarning();
 	C_languageInterationWidget::sayInterval();
 	C_languageInterationWidget::sayMassage(str);

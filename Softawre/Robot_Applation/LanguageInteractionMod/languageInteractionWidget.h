@@ -37,7 +37,12 @@ typedef struct
 }INTERACTION_CONFIG;
 
 
-
+typedef struct 
+{
+	char *data;
+	int dataLen;
+	/* data */
+}AUDIO_DATA;
 
 //Baidu_API_KEY baiduApiKey;
 

@@ -12,7 +12,7 @@ public:
 	C_languageInterationBaseDecice1();
 	~C_languageInterationBaseDecice1();
 
-	char* getInteractionQuestion(); 
+	void getInteractionQuestion(); 
 	void setInterationAnswer();
 	void setInteractionRepetition(); //重复
 };

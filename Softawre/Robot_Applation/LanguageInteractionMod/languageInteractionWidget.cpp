@@ -178,16 +178,16 @@ unsigned int C_languageInterationWidget::readFeedbackProfile(INTERACTION_CONFIG 
 	char url_pattern[200];// = "%s?grant_type=client_credentials&client_id=%s&client_secret=%s";
 	char API_TOKEN_URL[200];// = "https://aip.baidubce.com/oauth/2.0/token";
 
-	char *key_api_key       = "api_key";
-	char *key_secret_key    = "secret_key";
-	char *key_url           = "url";
-	char *key_dev_pid       = "dev_pid";
-	char *key_scope         = "scope";
-	char *key_cuid          = "cuid";
-	char *key_format        = "format";
-	char *key_rate          = "rate";
-	char *key_url_pattern   = "url_pattern";
-	char *key_API_TOKEN_URL = "API_TOKEN_URL";
+	char key_api_key[]       = "api_key";
+	char key_secret_key[]    = "secret_key";
+	char key_url[]           = "url";
+	char key_dev_pid[]       = "dev_pid";
+	char key_scope[]         = "scope";
+	char key_cuid[]          = "cuid";
+	char key_format[]        = "format";
+	char key_rate[]          = "rate";
+	char key_url_pattern[]   = "url_pattern";
+	char key_API_TOKEN_URL[] = "API_TOKEN_URL";
 
 	C_languageInterationWidget::readFileJson(p_fileName, key_api_key,       api_key);
 	C_languageInterationWidget::readFileJson(p_fileName, key_secret_key,    secret_key);
@@ -229,7 +229,7 @@ unsigned int C_languageInterationWidget::readFeedbackProfile(INTERACTION_CONFIG 
 */
 unsigned int C_languageInterationWidget::getRecordAudio(FILE *p_audio) //获取音频 录音
 {
-	char *p_fileName = "16k.wav";
+	char p_fileName[] = "16k.wav";
 
 	Sys_read_file(p_fileName,p_audio);
 	if(NULL == p_audio)

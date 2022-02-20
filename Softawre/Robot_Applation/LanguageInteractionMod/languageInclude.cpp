@@ -53,6 +53,7 @@ UINT32 Sys_init(void)
 unsigned int Sys_memcpy(void *dest, void *src, unsigned int count)
 {
 	memcpy(dest,src,count);
+	return 0;
 }
 
 /*

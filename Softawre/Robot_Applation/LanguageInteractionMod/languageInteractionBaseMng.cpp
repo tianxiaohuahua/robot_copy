@@ -45,7 +45,7 @@ unsigned int C_languageInteractionBaseMng::languageBaseInit()
 */
 INTERACTION_CONFIG *C_languageInteractionBaseMng::getInteractionConfig(INTERACTION_CONFIG *p_Interaction_Config)
 {
-
+     return 0;
 }
 
 /*
@@ -57,9 +57,9 @@ INTERACTION_CONFIG *C_languageInteractionBaseMng::getInteractionConfig(INTERACTI
 **返回：
      状态值
 */
-unsigned int C_languageInteractionBaseMng::getInteractionAudio(FILE *p_audio)
+AUDIO_DATA * C_languageInteractionBaseMng::getInteractionAudio(const char *p_Filename)
 {
-	return mp_LanguageInteraBase->getInteractionAudio(p_audio);
+	return mp_LanguageInteraBase->getInteractionAudio(p_Filename);
 }
 
 
@@ -120,9 +120,9 @@ unsigned int C_languageInteractionBaseMng::getInteractionBaiduAsr(INTERACTION_CO
      return mp_LanguageInteraBase->getInteractionBaiduAsr(config, p_audioData, content_len, token);
 }
 
-char *C_languageInteractionBaseMng::getInteractionQuestion()
+void C_languageInteractionBaseMng::getInteractionQuestion()
 {
-	return mp_LanguageInteraBase->getInteractionQuestion();
+	mp_LanguageInteraBase->getInteractionQuestion();
 }
 
 void C_languageInteractionBaseMng::setInteractionRepetition()
